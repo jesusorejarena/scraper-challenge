@@ -1,0 +1,8 @@
+node_modules/
+dist/
+downloads/
+*.log
+results.json
+.env
+.history/
+.DS_STORE
