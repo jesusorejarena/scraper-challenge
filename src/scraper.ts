@@ -12,9 +12,10 @@ import {
 import { DocumentData, BitacoraEntry } from './types';
 
 export async function runScraper() {
-  if (!fs.existsSync(DOWNLOAD_DIR)) {
-    fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
+  if (fs.existsSync(DOWNLOAD_DIR)) {
+    fs.rmSync(DOWNLOAD_DIR, { recursive: true, force: true });
   }
+  fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
 
   const allData: DocumentData[] = [];
   const bitacora: BitacoraEntry[] = [];
