@@ -8,12 +8,12 @@ El objetivo principal es navegar el sitio de consulta pública, extraer informac
 
 ## 📋 Características Principales (Cumplimiento del Desafío)
 
-✅ **Cero Automatización de Browser:** El proyecto está construido 100% sobre peticiones HTTP puras usando `axios` y analizando el DOM con `cheerio`. No se utiliza Puppeteer, Playwright ni Selenium.  
-✅ **TypeScript Estricto:** Código totalmente tipado y modularizado dentro de la carpeta `src/`.  
-✅ **Manejo de Sesión y JSF:** Implementación de `axios-cookiejar-support` y captura dinámica del token estricto `ViewState` para simular la navegación en páginas JavaServer Faces.  
-✅ **Manejo de Errores 429 (Rate Limiting):** Lógica robusta de **Exponential Backoff** implementada. Si el servidor devuelve "Too Many Requests", el scraper se pausa automáticamente y reintenta la descarga, mitigando el bloqueo. Si falla definitivamente tras múltiples intentos, registra el caso en `failed_downloads.log`.  
-✅ **Guardado Incremental e Inteligente:** Los PDFs legítimos se guardan organizados en carpetas con el nombre del proceso legal. El historial (`bitacora.md`) y la data extraída (`results.json`) se guardan de forma progresiva para evitar pérdida de datos si el script se interrumpe prematuramente.  
-✅ **Código Profesional:** El proyecto cuenta con `ESLint` y `Prettier` configurados para mantener una base de código estandarizada.
+- ✅ **Cero Automatización de Browser:** El proyecto está construido 100% sobre peticiones HTTP puras usando `axios` y analizando el DOM con `cheerio`. No se utiliza Puppeteer, Playwright ni Selenium.
+- ✅ **TypeScript Estricto:** Código totalmente tipado y modularizado dentro de la carpeta `src/`.
+- ✅ **Manejo de Sesión y JSF:** Implementación de `axios-cookiejar-support` y captura dinámica del token estricto `ViewState` para simular la navegación en páginas JavaServer Faces.
+- ✅ **Manejo de Errores 429 (Rate Limiting):** Lógica robusta de **Exponential Backoff** implementada. Si el servidor devuelve "Too Many Requests", el scraper se pausa automáticamente y reintenta la descarga, mitigando el bloqueo. Si falla definitivamente tras múltiples intentos, registra el caso en `failed_downloads.log`.
+- ✅ **Guardado Incremental e Inteligente:** Los PDFs legítimos se guardan organizados en carpetas con el nombre del proceso legal. El historial (`bitacora.md`) y la data extraída (`results.json`) se guardan de forma progresiva para evitar pérdida de datos si el script se interrumpe prematuramente.
+- ✅ **Código Profesional:** El proyecto cuenta con `ESLint` y `Prettier` configurados para mantener una base de código estandarizada.
 
 ---
 
@@ -66,7 +66,7 @@ npm run format  # Aplica auto-formateo con Prettier
 - `src/utils.ts`: Lógica de soporte HTTP (Configuración de Cookies con Axios) y función de reintentos exponenciales para lidiar con el error 429.
 - `src/pdf.ts`: Módulo encapsulado responsable de manejar la conexión binaria, detectar enlaces trampa (HTML vs PDF reales) y escribir los ficheros localmente.
 - `src/scraper.ts`: Contiene la lógica del motor de navegación a través del formulario inicial, extracción y parseo.
-- `/downloads`: (Generada al volar) Carpeta donde se guardan de manera organizada los PDFs descargados.
+- `/downloads`: (Generada) Carpeta donde se guardan de manera organizada los PDFs descargados.
 
 ---
 

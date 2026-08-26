@@ -7,5 +7,5 @@ export interface DocumentData {
 export interface BitacoraEntry {
   procesoTexto: string;
   detalleUrl: string;
-  archivos: string[];
+  archivos: { nombre: string; webUrl: string; localPath: string }[];
 }

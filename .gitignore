@@ -3,7 +3,8 @@ dist/
 downloads/
 *.log
 results.json
+bitacora.md
+debug_busqueda.html
 .env
 .history/
-.DS_STORE
-debug_busqueda.html
+.DS_Store

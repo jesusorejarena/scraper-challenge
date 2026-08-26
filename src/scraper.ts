@@ -188,6 +188,7 @@ export async function runScraper() {
           .toLowerCase();
 
         let savedFileName: string | null = null;
+        let successfulWebUrl: string | null = null;
 
         for (const link of potentialLinks) {
           const docData = {
@@ -199,13 +200,18 @@ export async function runScraper() {
 
           savedFileName = await downloadPdf(docData, userDownloadDir, 2);
           if (savedFileName) {
+            successfulWebUrl = docData.pdfUrl;
             break;
           }
         }
 
-        if (savedFileName) {
+        if (savedFileName && successfulWebUrl) {
           totalDescargas++;
-          bitacoraEntry.archivos.push(savedFileName);
+          bitacoraEntry.archivos.push({
+            nombre: savedFileName,
+            webUrl: successfulWebUrl,
+            localPath: path.join(userDownloadDir, savedFileName),
+          });
         }
 
         await new Promise((r) => setTimeout(r, 1000));
@@ -222,7 +228,8 @@ export async function runScraper() {
           mdContent += `- **Enlace Detalles:** ${b.detalleUrl}\n`;
           mdContent += `### Archivos Descargados:\n`;
           for (const arch of b.archivos) {
-            mdContent += `- \`${arch}\`\n`;
+            const safeLocalPath = arch.localPath.replace(/\\/g, '/'); // Por si se ejecuta en windows
+            mdContent += `- \`${arch.nombre}\` - [Abrir en la Web](${arch.webUrl}) | [Archivo Local](${encodeURI(safeLocalPath)})\n`;
           }
           mdContent += `\n---\n\n`;
         }
