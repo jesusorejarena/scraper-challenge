@@ -76,3 +76,13 @@ npm run format  # Aplica auto-formateo con Prettier
 2. **`results.json`**: Una volcadura de los datos serializados en JSON con el registro de IDs y URLs de origen para un análisis en backend.
 3. **`bitacora.md`**: Un archivo amigable de texto en Markdown, estilo bitácora, para leer rápidamente cuántos procesos se procesaron y qué documentos se bajaron exitosamente en la última sesión.
 4. **`failed_downloads.log`**: Registra URLs problemáticas (e.g., documentos clasificados o bloqueados) tras agotar el ciclo de 429 retries.
+
+---
+
+## 👨‍💻 Autor
+
+**Jesús Orejarena**
+
+- 📧 **Email:** [jesusorejarena@gmail.com](mailto:jesusorejarena@gmail.com)
+- 💼 **LinkedIn:** [linkedin.com/in/jesusorejarena](https://www.linkedin.com/in/jesusorejarena/)
+- 🐙 **GitHub:** [@jesusorejarena](https://github.com/jesusorejarena)
